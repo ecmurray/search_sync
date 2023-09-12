@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Debug Project",
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "build debug executable",
+            "program": "${workspaceFolder}/puzzle_debug",
+            "stdio": [
+                "spec-simple.txt", // redirect stdin
+                "output.txt", // redirect stdout
+                null // redirect stderr
+            ],
+            "args": ["--queue", "-o", "map"],
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}",
+            "postDebugTask": "clean workspace"
+        },
+    ]
+}
+// {
+//     "configurations": [
+
+//     {
+//         "name": "(lldb) Launch",
+//         "type": "cppdbg",
+//         "request": "launch",
+//         "program": "${workspaceFolder}/puzzle_debug",
+//         "args": [ "--queue", "-o", "map"],
+//         "stopAtEntry": false,
+//         "cwd": "${fileDirname}",
+//         "environment": [
+//             {
+//                 "name": "ASAN_OPTIONS",
+//                 "value": "abort_on_error=1:detect_leaks=0"
+//             }
+//         ],
+//         "externalConsole": false,
+//         "MIMode": "lldb"
+//     }
+//     ]
+// }
